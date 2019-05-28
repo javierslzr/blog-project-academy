@@ -1,10 +1,9 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-
-@NgModule({
-  declarations: [],
-  imports: [
-    CommonModule
-  ]
-})
-export class PostModelModule { }
+export class postTemplate {
+  id: number;
+  title: string;
+  category: string;
+  shortDescription: string;
+  publishedAt: string;
+  image: string;
+  comments: string[];
+}
