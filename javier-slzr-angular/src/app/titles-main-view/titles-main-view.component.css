@@ -1,0 +1,27 @@
+.titleUp {
+    color: orange;
+    text-align: center;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    margin-top: 0;
+}
+
+.titleDown {
+    color: black;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 60px;
+    font-weight: bold;
+    margin: 0px;
+}
+
+.brackets {
+    font-size: 40px;
+    color: orange;
+    font-family: 'Roboto', sans-serif;
+}
+
+.page-title {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}

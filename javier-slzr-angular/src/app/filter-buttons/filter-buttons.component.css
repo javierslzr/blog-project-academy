@@ -1,0 +1,12 @@
+.filter-btn{
+    background-color: whitesmoke;
+    border-color: #a1a1a1;
+}
+
+.btn-container{
+    display: flex; 
+    justify-content: center;
+    margin: 0 auto;
+}
+
+
