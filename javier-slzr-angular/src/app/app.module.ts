@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule} from '@angular/material';
+import {MatButtonModule, MatIconModule} from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { PostGridComponent } from './post-grid/post-grid.component';
@@ -20,7 +20,8 @@ import { FilterButtonsComponent } from './filter-buttons/filter-buttons.componen
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MatButtonModule
+    MatButtonModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

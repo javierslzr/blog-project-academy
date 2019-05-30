@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TitlesMainViewComponent implements OnInit {
 
+  titleUp: string = "Making your life easier"
+  titleDown: string = "Discovering the world"
+
   constructor() { }
 
   ngOnInit() {

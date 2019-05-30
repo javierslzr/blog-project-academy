@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class NewPostButtonComponent implements OnInit {
 
   constructor() { }
-  b
+  
   ngOnInit() {
   }
 
