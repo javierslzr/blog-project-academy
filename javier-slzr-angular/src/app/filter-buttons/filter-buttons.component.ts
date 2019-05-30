@@ -14,6 +14,11 @@ export class FilterButtonsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  
+    })
+
   }
+
+ 
 
 }
