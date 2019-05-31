@@ -16,7 +16,7 @@
   </mat-form-field>
 
   <div mat-dialog-actions>
-    <button mat-button (click)="onNoClick()">Cancel</button>
-    <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Post</button>
+    <button mat-button [mat-dialog-close] (click)="onClick()">Cancel</button>
+    <button mat-button [mat-dialog-close] (click)="onClick()" cdkFocusInitial>Post</button>
   </div>
 </form>

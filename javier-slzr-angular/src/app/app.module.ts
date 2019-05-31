@@ -11,7 +11,9 @@ import { FilterButtonsComponent } from './filter-buttons/filter-buttons.componen
 import { HttpClientModule } from '@angular/common/http';
 import { ModalFormComponent } from './modal-form/modal-form.component';
 import { MatDialogModule, MatFormFieldModule, MatInputModule } from '@angular/material';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PostThumbnailComponent } from './post-thumbnail/post-thumbnail.component';
+import { EditDeleteBtnsComponent } from './edit-delete-btns/edit-delete-btns.component';
 
 
 
@@ -23,7 +25,9 @@ import { FormsModule } from '@angular/forms';
     NewPostButtonComponent,
     TitlesMainViewComponent,
     FilterButtonsComponent,
-    ModalFormComponent
+    ModalFormComponent,
+    PostThumbnailComponent,
+    EditDeleteBtnsComponent
   ],
   imports: [
     BrowserModule,
@@ -35,9 +39,10 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
     MatDialogModule,
     MatFormFieldModule,
-    MatInputModule
-
+    MatInputModule,
+    ReactiveFormsModule
   ],
+  entryComponents:[ModalFormComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
