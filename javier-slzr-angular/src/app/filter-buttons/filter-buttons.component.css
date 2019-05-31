@@ -1,12 +1,15 @@
 .filter-btn{
-    background-color: whitesmoke;
-    border-color: #a1a1a1;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    background-color: none;
+    cursor: pointer;
+    border: .5px solid;
+    border-radius: 0;
+    border-color: lightgrey
 }
 
-.btn-container{
+#btn-container{
     display: flex; 
     justify-content: center;
     margin: 0 auto;
 }
-
 

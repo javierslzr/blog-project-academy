@@ -1,8 +1,6 @@
-<div class='btn-container'>
-    <button class='filter-btn' mat-button>All</button>
-    <button class='filter-btn' mat-button>Food</button>
-    <button class='filter-btn' mat-button>Travel</button>
-    <button class='filter-btn' mat-button>Hobbies</button>
-    <button class='filter-btn' mat-button>Games</button>
-    <button class='filter-btn' mat-button>Random</button>
+<div id='btn-container'>
+    <button class='filter-btn' mat-button [autofocus]="true">All</button>
+    <button class='filter-btn' mat-button *ngFor="let category of categoryBtns$ | async">
+        {{ category | titlecase }}
+    </button>
 </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CategoryService } from '../category.service';
+import { Observable } from 'rxjs';
+import { ApiService } from '../api.service'
 
 @Component({
   selector: 'app-filter-buttons',
@@ -9,16 +10,16 @@ import { CategoryService } from '../category.service';
 
 export class FilterButtonsComponent implements OnInit {
 
-  filterBtns = [];
+  categoryBtns$: Observable<[]>
 
-  constructor() { }
+  constructor(private apiService: ApiService) { }
 
   ngOnInit() {
-  
-    })
-
+    this.getCaterogies();
   }
 
- 
+  getCaterogies() {
+    this.categoryBtns$ = this.apiService.getCategories();
+  }
 
 }
