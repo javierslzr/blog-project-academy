@@ -1,0 +1,54 @@
+.btn-group{
+    display: block;
+    position: absolute;
+    bottom: 3%;
+    right: 2%;
+    color: white;
+  }
+
+  .post-thumb {
+    width: 100%; 
+    height: 100%; 
+    position: relative;
+    padding: 30px;
+    box-sizing: border-box;
+    background-size: cover;
+    color: white;
+    font-family: sans-serif;
+  }
+
+  .post-title{
+    display: block;
+    bottom: 135px;
+    position: absolute;
+    font-size: 30px;
+  }
+
+  .short-desc{
+    display: block;
+    bottom: 60px;
+    position: absolute;
+
+  }
+
+  .comments {
+    display: block;
+    position: absolute;
+    bottom: 110px;
+    font-style: italic;
+  }
+
+.commentIcn{
+    font-size: 12px;
+}
+
+  .category{
+    display: block;
+    position: absolute;
+    bottom: 0;
+  }
+
+  .mat-mini-fab {
+      background: none;
+      box-shadow: none;
+  }

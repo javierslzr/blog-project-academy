@@ -14,6 +14,7 @@ import { MatDialogModule, MatFormFieldModule, MatInputModule } from '@angular/ma
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PostThumbnailComponent } from './post-thumbnail/post-thumbnail.component';
 import { EditDeleteBtnsComponent } from './edit-delete-btns/edit-delete-btns.component';
+import { BackgroundImgPipe } from './background-img.pipe';
 
 
 
@@ -27,7 +28,8 @@ import { EditDeleteBtnsComponent } from './edit-delete-btns/edit-delete-btns.com
     FilterButtonsComponent,
     ModalFormComponent,
     PostThumbnailComponent,
-    EditDeleteBtnsComponent
+    EditDeleteBtnsComponent,
+    BackgroundImgPipe
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,21 @@
 <mat-grid-list cols="2" rowHeight="2:1">
-  <mat-grid-tile>1</mat-grid-tile>
-  <mat-grid-tile>2</mat-grid-tile>
-  <mat-grid-tile>3</mat-grid-tile>
-  <mat-grid-tile>4</mat-grid-tile>
-</mat-grid-list>
+  <div *ngFor="let post of posts">
+    <mat-grid-tile>
+      <div class='post-thumb' [style.backgroundImage]="post.image | backgroundImg">
+        <h3 class="post-title">{{ post.title }}</h3>
+        <p class='comments'>{{ post.comments.length }} comments <i class="material-icons commentIcn">
+            comment
+          </i></p>
+        <p class='short-desc'>{{ post.shortDescription }}</p>
+        <p class='category'>{{ post.category | uppercase}}</p>
+      </div>
+      <div class="btn-group">
+        <button  mat-mini-fab><i class="material-icons">
+            create
+          </i></button>
+        <button mat-mini-fab><i class="material-icons">
+            delete_forever
+          </i></button>
+      </div>
+    </mat-grid-tile>
+  </div>
