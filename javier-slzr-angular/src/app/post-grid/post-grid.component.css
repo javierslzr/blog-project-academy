@@ -11,10 +11,11 @@
     height: 100%; 
     position: relative;
     padding: 30px;
-    box-sizing: border-box;
     background-size: cover;
     color: white;
     font-family: sans-serif;
+    box-sizing: border-box;
+
   }
 
   .post-title{
@@ -51,4 +52,8 @@
   .mat-mini-fab {
       background: none;
       box-shadow: none;
+  }
+
+  .maincontainer{
+    padding-top: 15px;
   }
