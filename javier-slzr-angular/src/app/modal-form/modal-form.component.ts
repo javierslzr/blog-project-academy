@@ -15,7 +15,9 @@ import { postTemplate } from '../post-model/post-model.module';
 export class ModalFormComponent implements OnInit, OnDestroy {
 
   categories = [];
-  modalTitle: String
+  modalTitle: String;
+  Form: FormBuilder;
+  sub$: Subscription;
 
   posts: postTemplate = {
     id: 0,
@@ -28,15 +30,12 @@ export class ModalFormComponent implements OnInit, OnDestroy {
     comments: []
   }
 
-newPost
-
   originalPost: postTemplate = new postTemplate();
 
   @Output() sendPost : EventEmitter<object> = new EventEmitter<object>();
 
 
-  constructor(
-    private http: NewServiceService,
+  constructor(private http: NewServiceService,
     @Inject(MAT_DIALOG_DATA) public data: postTemplate
   ) { }
 
