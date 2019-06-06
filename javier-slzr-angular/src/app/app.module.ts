@@ -12,9 +12,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { ModalFormComponent } from './modal-form/modal-form.component';
 import { MatDialogModule, MatFormFieldModule, MatInputModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { PostThumbnailComponent } from './post-thumbnail/post-thumbnail.component';
-import { EditDeleteBtnsComponent } from './edit-delete-btns/edit-delete-btns.component';
 import { BackgroundImgPipe } from './background-img.pipe';
+import {MatSelectModule} from '@angular/material/select';
+
 
 
 
@@ -27,8 +27,6 @@ import { BackgroundImgPipe } from './background-img.pipe';
     TitlesMainViewComponent,
     FilterButtonsComponent,
     ModalFormComponent,
-    PostThumbnailComponent,
-    EditDeleteBtnsComponent,
     BackgroundImgPipe
   ],
   imports: [
@@ -42,7 +40,8 @@ import { BackgroundImgPipe } from './background-img.pipe';
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSelectModule,
   ],
   entryComponents:[ModalFormComponent],
   providers: [],

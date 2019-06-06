@@ -10,11 +10,20 @@ import { NewServiceService, } from '../new-service.service';
 
 export class FilterButtonsComponent {
 
+  categories$: Observable<[]>
 
   constructor(private apiService: NewServiceService) { }
 
+  getCategories() {
+    this.categories$ = this.apiService.getCategories()
+  }
+
   onClick(category: string) {
     this.apiService.selectCategory(category)
+  }
+
+  ngOnInit() {
+    this.getCategories();
   }
 
 

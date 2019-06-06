@@ -10,7 +10,9 @@ import { postTemplate } from '../app/post-model/post-model.module'
 export class NewServiceService {
 
   private postsUrl = 'https://private-c3edb-postsmock.apiary-mock.com/posts';
+  private categoriesUrl = 'http://private-c3edb-postsmock.apiary-mock.com/categories';
 
+  categories$: Observable<[]>
   posts$: Observable<postTemplate[]>;
   categorySubject: BehaviorSubject<string> = new BehaviorSubject<string>('all');
   selectedCategory$: Observable<string> = this.categorySubject.asObservable();
@@ -39,4 +41,11 @@ export class NewServiceService {
   public getPosts() {
     this.posts$ = this._http.get<postTemplate[]>(this.postsUrl);
   }
+
+  public getCategories() {
+    this.categories$ = this._http.get<[]>(this.categoriesUrl);
+    return this.categories$
+  }
+
+  
 }

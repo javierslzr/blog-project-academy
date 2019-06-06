@@ -1,6 +1,6 @@
 <div id='btn-container'>
     <button class='filter-btn' (click)="onClick('all')" mat-button [autofocus]="true">All</button>
-    <button class='filter-btn' (click)="onClick(category)" mat-button *ngFor="let category of category | async">
+    <button class='filter-btn' (click)="onClick(category)" mat-button *ngFor="let category of categories$ | async">
         {{ category | titlecase }}
     </button>
 </div>
