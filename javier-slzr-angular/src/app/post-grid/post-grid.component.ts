@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ApiService } from '../api.service'
 import { Observable, Subscription } from 'rxjs';
+import { NewServiceService } from '../new-service.service';
+import { postTemplate } from '../post-model/post-model.module';
 
 
 @Component({
@@ -8,27 +9,33 @@ import { Observable, Subscription } from 'rxjs';
   templateUrl: './post-grid.component.html',
   styleUrls: ['./post-grid.component.css']
 })
-export class PostGridComponent implements OnInit, OnDestroy {
 
-  posts$: Observable<object[]>;
-  posts: object[];
-  sub$: Subscription;
+export class PostGridComponent {
 
-  constructor(private apiService: ApiService) { }
+  posts$: Observable<postTemplate[]>;
+  // posts: object[];
+  // sub$: Subscription;
 
-  ngOnInit() {
-    this.getPosts();
+  constructor(private _apiService: NewServiceService) {
+    this.posts$ = this._apiService.combinePostsAndCategory$
   }
 
-  ngOnDestroy() {
-    this.sub$.unsubscribe();
-  }
+  // ngOnInit() {
+  //   this.getPosts();
+  // }
 
-  getPosts() {
-    this.sub$ = this.apiService.getPosts().subscribe((post)=> {
-      console.log(this.posts = post)
-      this.posts = post
-    })
-  }
+  // ngOnDestroy() {
+  //   this.sub$.unsubscribe();
+  // }
+
+  // getPosts() {
+  //   this.sub$ = this.apiService.getPosts().subscribe((post)=> {
+  //     console.log(this.posts = post)
+  //     this.posts = post
+  //   })
+  // }
 
 }
+
+
+

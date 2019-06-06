@@ -19,10 +19,14 @@ export class NewServiceService {
   constructor(private _http: HttpClient) {
     this.getPosts();
     this.combinePostsAndCategory$ = combineLatest(this.posts$, this.selectedCategory$).pipe(
-        map(this.filterPosts.bind(this))
-      );
+      map(this.filterPosts.bind(this))
+    );
   }
 
+  public selectCategory(category: string) {
+    this.categorySubject.next(category);
+    console.log(category)
+  }
 
   filterPosts([posts, category]) {
     console.log(posts);
@@ -32,7 +36,7 @@ export class NewServiceService {
     return posts.filter(post => post.category === category);
   }
 
-  getPosts() {
+  public getPosts() {
     this.posts$ = this._http.get<postTemplate[]>(this.postsUrl);
   }
 }
