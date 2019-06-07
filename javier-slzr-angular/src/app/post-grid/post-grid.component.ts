@@ -13,8 +13,6 @@ import { postTemplate } from '../post-model/post-model.module';
 export class PostGridComponent {
 
   posts$: Observable<postTemplate[]>;
-  // posts: object[];
-  // sub$: Subscription;
   col = 2
 
   constructor(private _apiService: NewServiceService) {
@@ -22,29 +20,18 @@ export class PostGridComponent {
   }
 
   ngOnInit() {
-    if(window.innerWidth <= 720)    {
+    if(window.innerWidth <= 768)    {
       this.col = 1
     } else
        this.col = 2
   }
 
   onResize(){
-    if(window.innerWidth <= 720)    {
+    if(window.innerWidth <= 768)    {
       this.col = 1
     } else
        this.col = 2
   }
-
-  // ngOnDestroy() {
-  //   this.sub$.unsubscribe();
-  // }
-
-  // getPosts() {
-  //   this.sub$ = this.apiService.getPosts().subscribe((post)=> {
-  //     console.log(this.posts = post)
-  //     this.posts = post
-  //   })
-  // }
 
 }
 
