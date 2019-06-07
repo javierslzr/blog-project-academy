@@ -3,6 +3,7 @@ import { combineLatest, pipe, Observable, BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { postTemplate } from '../app/post-model/post-model.module'
+import { post } from 'selenium-webdriver/http';
 
 @Injectable({
   providedIn: 'root'
@@ -17,10 +18,12 @@ export class NewServiceService {
   categorySubject: BehaviorSubject<string> = new BehaviorSubject<string>('all');
   selectedCategory$: Observable<string> = this.categorySubject.asObservable();
   combinePostsAndCategory$: Observable<postTemplate[]>;
+  newElement: BehaviorSubject<postTemplate[]> = new BehaviorSubject<postTemplate[]>([])
+
 
   constructor(private _http: HttpClient) {
     this.getPosts();
-    this.combinePostsAndCategory$ = combineLatest(this.posts$, this.selectedCategory$).pipe(
+    this.combinePostsAndCategory$ = combineLatest(this.newElement, this.selectedCategory$).pipe(
       map(this.filterPosts.bind(this))
     );
   }
@@ -39,7 +42,10 @@ export class NewServiceService {
   }
 
   public getPosts() {
-    this.posts$ = this._http.get<postTemplate[]>(this.postsUrl);
+    this._http.get<postTemplate[]>(this.postsUrl).subscribe((posts$) => {
+      this.newElement.next(posts$)
+    })
+    return this.newElement;
   }
 
   public getCategories() {
@@ -47,5 +53,7 @@ export class NewServiceService {
     return this.categories$
   }
 
-  
+  public addPost(postTemplate) {
+    this.newElement.next(this.newElement.getValue().concat([postTemplate]))
+  }
 }

@@ -5,8 +5,6 @@ import { MAT_DIALOG_DATA } from '@angular/material';
 import { NewServiceService } from '../new-service.service';
 import { postTemplate } from '../post-model/post-model.module';
 
-
-
 @Component({
   selector: 'app-modal-form',
   templateUrl: './modal-form.component.html',
@@ -43,16 +41,17 @@ export class ModalFormComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.getCategories();
-    this.Form = new FormGroup({
-      title: new FormControl(),
-      description: new FormControl(),
-      category: new FormControl(),
-      image: new FormControl
+    this.Form = this.formBuilder.group({
+      title: [null, [Validators.required]],
+      image: [this.posts.image, [Validators.required]],
+      category: [null, [Validators.required]],
+      description: [null, [Validators.required]],
+      comments: ['hello']
     })
   }
 
   categoryObs = {
-    next: x => this.categories = x,
+    next: x => this.categories = x
   }
 
   getCategories() {
@@ -63,16 +62,19 @@ export class ModalFormComponent implements OnInit, OnDestroy {
     this.posts.category = category
   }
 
-
-
   ngOnDestroy() {
   }
 
   onSubmit() {
-    this.sendPost.emit(this.Form.value)
+    console.log(this.Form.value)
+    if (this.Form.status === 'VALID') {
+      this.Form.value.shortDescription = this.Form.value.description;
+      this.sendPost.emit(this.Form.value)
+    }
   }
 
   onClick() {
+    this.onSubmit()
     console.log("modal closed!");
   }
 

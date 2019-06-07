@@ -16,7 +16,9 @@ export class NewPostButtonComponent {
   theNewPost : object;
 
   @Output() newPost : EventEmitter<object> = new EventEmitter<object>();
-
+  
+  @Output() addedPost : EventEmitter<object> = new EventEmitter<object>();
+  
   constructor(public dialog: MatDialog) { }
 
   ngOnInit() {
@@ -25,6 +27,7 @@ export class NewPostButtonComponent {
   openDialog() {
     let dialogRef = this.dialog.open(ModalFormComponent, { minWidth: '40vw', minHeight: '40vh'})
     this.sub$ = dialogRef.componentInstance.sendPost.subscribe((post)=> this.newPost.emit(post));
+    this.addedPost.emit(dialogRef)
   }
 
 }

@@ -1,4 +1,4 @@
 <app-titles-main-view></app-titles-main-view>
-<app-new-post-button></app-new-post-button>
+<app-new-post-button (newPost)="sendValue($event)" (addedPost)="upPost($event)" ></app-new-post-button>
 <app-filter-buttons></app-filter-buttons>
 <app-post-grid></app-post-grid>
