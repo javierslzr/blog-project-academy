@@ -15,14 +15,25 @@ export class PostGridComponent {
   posts$: Observable<postTemplate[]>;
   // posts: object[];
   // sub$: Subscription;
+  col = 2
 
   constructor(private _apiService: NewServiceService) {
     this.posts$ = this._apiService.combinePostsAndCategory$
   }
 
-  // ngOnInit() {
-  //   this.getPosts();
-  // }
+  ngOnInit() {
+    if(window.innerWidth <= 720)    {
+      this.col = 1
+    } else
+       this.col = 2
+  }
+
+  onResize(){
+    if(window.innerWidth <= 720)    {
+      this.col = 1
+    } else
+       this.col = 2
+  }
 
   // ngOnDestroy() {
   //   this.sub$.unsubscribe();

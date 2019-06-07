@@ -1,21 +1,22 @@
-<mat-grid-list *ngIf="posts$ | async as posts" class='maincontainer' cols="2" rowHeight="2:1">
+<mat-grid-list *ngIf="posts$ | async as posts" class='maincontainer' (window:resize)="onResize()" cols="{{col}}" rowHeight="2:1">
   <div *ngFor="let post of posts">
     <mat-grid-tile>
       <div class='post-thumb' [style.backgroundImage]="post.image | backgroundImg">
-        <h3 class="post-title">{{ post.title }}</h3>
-        <p class='comments'>{{ post.comments.length }} comments <i class="material-icons commentIcn">
+        <h3 md-display-3 class="post-title">{{ post.title }}</h3>
+        <p md-display-3 class='comments'>{{ post.comments.length }} comments <i class="material-icons commentIcn">
             comment
           </i></p>
-        <p class='short-desc'>{{ post.shortDescription }}</p>
-        <p class='category'>{{ post.category | uppercase}}</p>
+        <p md-display-3 class='short-desc'>{{ post.shortDescription }}</p>
+        <p md-display-3 class='category'>{{ post.category | uppercase}}</p>
       </div>
       <div class="btn-group">
-        <button mat-mini-fab><i class="material-icons">
+        <button md-display-3 mat-mini-fab><i class="material-icons">
             create
           </i></button>
-        <button mat-mini-fab><i class="material-icons">
+        <button md-display-3 mat-mini-fab><i class="material-icons">
             delete_forever
           </i></button>
       </div>
     </mat-grid-tile>
   </div>
+</mat-grid-list>

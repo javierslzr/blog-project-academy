@@ -14,6 +14,7 @@ import { MatDialogModule, MatFormFieldModule, MatInputModule } from '@angular/ma
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BackgroundImgPipe } from './background-img.pipe';
 import {MatSelectModule} from '@angular/material/select';
+import { AppRoutingModule } from '../app-routing.module';
 
 
 
@@ -42,6 +43,7 @@ import {MatSelectModule} from '@angular/material/select';
     MatInputModule,
     ReactiveFormsModule,
     MatSelectModule,
+    AppRoutingModule,
   ],
   entryComponents:[ModalFormComponent],
   providers: [],
