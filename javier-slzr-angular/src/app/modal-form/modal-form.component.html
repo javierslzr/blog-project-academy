@@ -1,15 +1,15 @@
-<form class="example-form">
+<form class="example-form" [formGroup]="Form" (ngSubmit)="onSubmit()" (ngSubmit)="submitForm(value)">
   <h3>{{modalTitle}}</h3>
   <mat-form-field class="example-full-width">
-    <input matInput [(ngModel)]="posts.Title" placeholder="Title" name="Title">
+    <input matInput placeholder="Title" name="Title">
   </mat-form-field>
 
   <mat-form-field class="example-full-width">
-      <input matInput [(ngModel)]="posts.Description" placeholder="Description" name="Description">
+    <input matInput placeholder="Description" name="Description">
   </mat-form-field>
 
   <mat-form-field class="example-full-width">
-    <mat-select [(ngModel)]="posts.category" placeholder="Category" name="Category" class="example-full-width">
+    <mat-select placeholder="Category" name="Category" class="example-full-width">
       <mat-option *ngFor="let category of categories" value="{{category}}">
         {{category}}
       </mat-option>
@@ -18,11 +18,11 @@
 
 
   <mat-form-field class="example-full-width">
-    <textarea matInput [(ngModel)]="posts.image" name="URL of the image" placeholder="URL of the image"></textarea>
+    <textarea matInput name="URL of the image" placeholder="URL of the image"></textarea>
   </mat-form-field>
 
   <div mat-dialog-actions>
     <button mat-button [mat-dialog-close] class='modalBtn' (click)="onClick()">Cancel</button>
-    <button mat-button [mat-dialog-close] class='modalBtn' (click)="onClick()" cdkFocusInitial>Post</button>
+    <button mat-button [mat-dialog-close] class='modalBtn' type="submit" cdkFocusInitial>Post</button>
   </div>
 </form>

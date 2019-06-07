@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy, Output, EventEmitter, Input, Inject } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms'
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 import { Subscription } from 'rxjs';
 import { MAT_DIALOG_DATA } from '@angular/material';
 import { NewServiceService } from '../new-service.service';
@@ -16,7 +16,7 @@ export class ModalFormComponent implements OnInit, OnDestroy {
 
   categories = [];
   modalTitle: String;
-  Form: FormBuilder;
+  Form: FormGroup;
   sub$: Subscription;
 
   posts: postTemplate = {
@@ -32,12 +32,24 @@ export class ModalFormComponent implements OnInit, OnDestroy {
 
   originalPost: postTemplate = new postTemplate();
 
-  @Output() sendPost : EventEmitter<object> = new EventEmitter<object>();
+  @Output() sendPost: EventEmitter<object> = new EventEmitter<object>();
 
 
-  constructor(private http: NewServiceService,
+  constructor(
+    private formBuilder: FormBuilder,
+    private http: NewServiceService,
     @Inject(MAT_DIALOG_DATA) public data: postTemplate
   ) { }
+
+  ngOnInit() {
+    this.getCategories();
+    this.Form = new FormGroup({
+      title: new FormControl(),
+      description: new FormControl(),
+      category: new FormControl(),
+      image: new FormControl
+    })
+  }
 
   categoryObs = {
     next: x => this.categories = x,
@@ -51,25 +63,19 @@ export class ModalFormComponent implements OnInit, OnDestroy {
     this.posts.category = category
   }
 
-  ngOnInit() {
-    this.getCategories();
-    console.log(this.categories)
-  }
+
 
   ngOnDestroy() {
   }
 
-  // onSubmit() {
-  //   console.log(this.Form.value)
-  //   if (this.Form.status === 'VALID') {
-  //     this.sendPost.emit(this.Form.value)
-  //   }
-  // }
+  onSubmit() {
+    this.sendPost.emit(this.Form.value)
+  }
 
   onClick() {
     console.log("modal closed!");
   }
 
- 
+
 
 }
